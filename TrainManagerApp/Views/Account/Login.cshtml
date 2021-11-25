@@ -1,0 +1,32 @@
+﻿@model TrainManagerApp.ViewModels.LoginModel
+
+<h2 class="d-flex justify-content-center">Train manager</h2>
+<div class="row">
+    <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label">Input login</label>
+            <input type="text" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger" />
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="Password" class="control-label">Input password</label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger" />
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="Log in" class="btn btn-outline-dark" />
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@section Register{
+    <a class="navbar-brand" asp-controller="Account" asp-action="Register">Sign up</a>
+}

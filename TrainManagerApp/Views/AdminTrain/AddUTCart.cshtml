@@ -1,0 +1,45 @@
+﻿@model TrainManagerApp.ViewModels.Train.ViewUTCar
+
+@{
+    ViewData["Title"] = "AddUTCart";
+}
+
+<h2 class="d-flex justify-content-center">Add Cars</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddUTCart">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="TypeOfCar" class="control-label"></label>
+                @if (Model.TypeOfTrain == TypeOfTrain.UsualTrain)
+                {
+                    <select asp-for="TypeOfCar" asp-items="Html.GetEnumSelectList<TypeOfCar>().Take(3)" class="form-control">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                }
+                else
+                {
+                    <select asp-for="TypeOfCar" asp-items="Html.GetEnumSelectList<TypeOfCar>().Skip(3).Take(2)" class="form-control">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                }
+               @* <select asp-for="TypeOfUTCar" asp-items="Html.GetEnumSelectList<TypeOfCar>().Take(2)" class="form-control">*@
+                <span asp-validation-for="TypeOfCar" class="text-danger"></span>
+            </div>
+            
+    <div class="form-group">
+        <label asp-for="CartsNum" class="control-label">Input number of cars</label>
+        <input asp-for="CartsNum" class="form-control"/>
+        <span asp-validation-for="CartsNum" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

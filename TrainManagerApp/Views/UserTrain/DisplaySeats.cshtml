@@ -1,0 +1,136 @@
+﻿@model dynamic
+
+
+@{
+    ViewData["Title"] = "DisplaySeats";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int seatNum = 0;
+}
+<h2 class="d-flex justify-content-center">Seats</h2>
+<div class="theatre">
+    <div class="cinema-seats left">
+        <div class="cinema-row row-6">
+            @foreach (Seat item in Model.FirstR)
+            {
+                ++seatNum;
+                if (item.Booked == false)
+                {
+                    <a asp-action="OrderTicket" asp-route-id="@item.Id" style="color: white">
+                        <div class="seat">@seatNum</div>
+                    </a>
+                }
+                else
+                {
+                    <div class="seat" style="color: antiquewhite">@seatNum</div>
+                }
+            }
+        </div>
+
+        <div class="cinema-row row-7">
+            @foreach (Seat item in Model.SecondR)
+            {
+                ++seatNum;
+                if (item.Booked == false)
+                {
+                    <a asp-action="OrderTicket" asp-route-id="@item.Id" style="color: white">
+                        <div class="seat">@seatNum</div>
+                    </a>
+                }
+                else
+                {
+                    <div class="seat" style="color: antiquewhite">@seatNum</div>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="cinema-seats right">
+        <div class="cinema-row row-1">
+            @foreach (Seat item in Model.ThirdR)
+            {
+                ++seatNum;
+                if (item.Booked == false)
+                {
+                    <a asp-action="OrderTicket" asp-route-id="@item.Id" style="color: white">
+                        <div class="seat">@seatNum</div>
+                    </a>
+                }
+                else
+                {
+                    <div class="seat" style="color: antiquewhite">@seatNum</div>
+                }
+            }
+        </div>
+
+        <div class="cinema-row row-2">
+            @foreach (Seat item in Model.FourthR)
+            {
+                ++seatNum;
+                if (item.Booked == false)
+                {
+                    <a asp-action="OrderTicket" asp-route-id="@item.Id" style="color: white">
+                        <div class="seat">@seatNum</div>
+                    </a>
+                }
+                else
+                {
+                    <div class="seat" style="color: antiquewhite">@seatNum</div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+@*
+    @functions
+    {
+        public int Divide(int n)
+        {
+            int[] arr = new int[3];
+            int dil = Model.Count % 4;
+            int nums = (Model.Count - dil) / 4;
+
+            return nums;
+        }
+
+        public void AddSeats(int numOfRow, int numInRow)
+        {
+            int ou = 0;
+            int ins = 0;
+            foreach (var item in Model)
+            {
+                ++ou;
+                if (numOfRow == 1 && i < numInRow * numOfRow)
+                {
+                    <div class="seat"></div>
+
+                    if (i == numInRow)
+                        return;
+                }
+                if (numInRow == 2 && i < numInRow * numOfRow)
+                {
+
+                    <div class="seat"></div>
+                    if (i == numInRow)
+                        return;
+                }
+                if (numInRow == 3 && i < numInRow * numOfRow)
+                {
+
+                    <div class="seat"></div>
+                    if (i == numInRow)
+                        return;
+                }
+                if (numInRow == 4 && i < numInRow * numOfRow)
+                {
+
+                    <div class="seat"></div>
+                    if (i == numInRow)
+                        return;
+                }
+            }
+        }
+    }*@
+@section ToLogout{
+    <a class="navbar-brand" asp-controller="Account" asp-action="Logout">Logout</a>
+}

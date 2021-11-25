@@ -1,0 +1,58 @@
+﻿@model TrainManagerApp.ViewModels.Train.ViewTrain
+
+@{
+    ViewData["Title"] = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="d-flex justify-content-center">Add train</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddTrain">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="TypeOfTrain" class="control-label"></label>
+                <select asp-for="TypeOfTrain" asp-items="Html.GetEnumSelectList<TypeOfTrain>()" class="form-control">
+                    <option value="value">text</option>
+                </select>
+                <span asp-validation-for="TypeOfTrain" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PointOfDeparture" class="control-label"></label>
+                <select asp-for="PointOfDeparture" asp-items="Html.GetEnumSelectList<Route>()" class="form-control">
+                    <option value="value">text</option>
+                </select>
+                <span asp-validation-for="PointOfDeparture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PointOfArrival" class="control-label"></label>
+                <select asp-for="PointOfArrival" asp-items="Html.GetEnumSelectList<Route>()" class="form-control">
+                    <option value="value">text</option>
+                </select>
+                <span asp-validation-for="PointOfArrival" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfDeparture" class="control-label"></label>
+                <input asp-for="DateOfDeparture" class="form-control" />
+                <span asp-validation-for="DateOfDeparture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfArrival" class="control-label"></label>
+                <input asp-for="DateOfArrival" class="form-control" />
+                <span asp-validation-for="DateOfArrival" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input id="choseTrBut" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@section ToLogout{
+    <a class="navbar-brand" asp-controller="Account" asp-action="Logout">Logout</a>
+}

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TrainManagerApp.Models.Train>
+
+@{
+    ViewData["Title"] = "DisplayTrains";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="d-flex justify-content-center">Display trains</h2>
+<p>
+    <a asp-action="AddTrain">Add new train</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeOfTrain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PointOfDeparture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PointOfArrival)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfDeparture)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOfTrain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PointOfDeparture)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PointOfArrival)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfDeparture)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    @*<a asp-action="AddUTCart" asp-route-id="@item.Id">Add car</a> *@
+                    @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                </td>
+            </tr>
+        }
+
+
+</table>
+
+@section ToLogout{
+    <a class="navbar-brand" asp-controller="Account" asp-action="Logout">Logout</a>
+}
+
+@section AddTrain{
+    <a class="navbar-brand" asp-controller="AdminTrain" asp-action="AddTrain">Add train</a>
+}
