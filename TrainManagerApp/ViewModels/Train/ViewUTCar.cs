@@ -13,12 +13,10 @@ namespace TrainManagerApp.ViewModels.Train
         [Display (Name = "Type of car")]
         public TypeOfCar TypeOfCar { get; set; }
 
-
         [Required]
         [Display(Name = "Number of carts")]
         public int CartsNum { get; set; }
         public TypeOfTrain TypeOfTrain { get; set; }
-
         public int TrainId { get; set; }
 
     }

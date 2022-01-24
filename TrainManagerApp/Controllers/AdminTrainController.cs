@@ -10,16 +10,6 @@ using TrainManagerApp.ViewModels.Train;
 
 namespace TrainManagerApp.Controllers
 {
-    /*
-        Токен - это нечто, чем должен обладать пользователь, чтобы получить доступ к ресурсу. 
-        Например, доступ к серверу можно организовать через файл Token.dat для каждого пользователя.
-        Каждому пользователю нужно выдать его персональный файл Token.dat, 
-        в котором содержится полный список необходимых данных для доступа к ресурсу, 
-        например адрес и порт сервера, идентификатор пользователя и его ключ.*/
-    /*
-     The basic purpose of ValidateAntiForgeryToken attribute is to prevent cross-site request forgery attacks.
-      A cross-site request forgery is an attack in which a harmful script element, malicious command, or code is sent from the browser of a trusted user. For more information on this please visit
-     */
     public class AdminTrainController : Controller
     {
         private readonly DataBaseContext context;
@@ -32,20 +22,20 @@ namespace TrainManagerApp.Controllers
         {
             return View(await context.Trains.ToListAsync());
         }
-        //GET
+
         public IActionResult AddTrain()
         {
             return View();
         }
-        
-        [HttpPost] 
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddTrain(Train train)
         {
             if (ModelState.IsValid)
             {
                 trainUn = train;
-                return RedirectToAction("AddUTCart"); 
+                return RedirectToAction("AddUTCart");
             }
             return View(train);
         }
@@ -55,7 +45,6 @@ namespace TrainManagerApp.Controllers
         {
             return RedirectToAction(nameof(DisplayTrains));
         }
-
 
         [HttpGet]
         public IActionResult AddUTCart()
@@ -133,7 +122,7 @@ namespace TrainManagerApp.Controllers
                         break;
                 }
             }
-           
+
         }
         private void AddSave(List<Seat> seats)
         {

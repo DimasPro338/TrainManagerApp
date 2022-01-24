@@ -6,28 +6,28 @@
         <div class="validation" asp-validation-summary="ModelOnly"></div>
         <div class="form-group">
             <label asp-for="Email" class="control-label">Input login</label><br />
-            <input type="text" asp-for="Email" class="form-control"/>
-            <span asp-validation-for="Email" class="text-danger"/>
+            <input type="text" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger" />
         </div>
         <div class="form-group">
             <label asp-for="Password" class="control-label">Input password</label><br />
-            <input asp-for="Password"  class="form-control"/>
-            <span asp-validation-for="Password" class="text-danger"/>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger" />
         </div>
         <div class="form-group">
             <label asp-for="ConfirmPassword" class="control-label">Repeat password</label><br />
-            <input asp-for="ConfirmPassword"  class="form-control"/>
-            <span asp-validation-for="ConfirmPassword" class="text-danger"/>
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger" />
         </div>
         <div class="form-group">
-            <input id="choseTrBut" type="submit" value="Sign up" class="btn btn-outline-dark"/>
+            <input id="choseTrBut" type="submit" value="Sign up" class="btn btn-outline-dark" />
         </div>
     </form>
-</div> 
+</div>
 @section Scripts {
-         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-         }
-         
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
 @section Login{
-        <a class="navbar-brand" asp-controller="Account" asp-action="Login">Login</a>
-    }
+<a class="navbar-brand" asp-controller="Account" asp-action="Login">Login</a>
+}

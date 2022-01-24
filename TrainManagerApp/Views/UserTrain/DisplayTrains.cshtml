@@ -20,63 +20,65 @@
                             </h5>
                             <p class="card-text">
 
-                                <div class="d-flex justify-content-between">
-                                    <div>
+                            <div class="d-flex justify-content-between">
+                                <div>
                                         @item.DateOfDeparture.ToString("HH:mm")
-                                    </div>
-                                    <div>
-                                        @item.DateOfArrival.Subtract(item.DateOfDeparture).Hours H : @item.DateOfArrival.Subtract(item.DateOfDeparture).Minutes M
-                                    </div>
-                                    <div>
+                                </div>
+                                <div>
+                                        @item.DateOfArrival.Subtract(item.DateOfDeparture).Hours H :
+                                        @item.DateOfArrival.Subtract(item.DateOfDeparture).Minutes M
+                                </div>
+                                <div>
                                         @item.DateOfArrival.ToString("HH:mm")
-                                    </div>
                                 </div>
-                                <br>
-                                <div class="float-left">
+                            </div>
+                            <br>
+                            <div class="float-left">
                                     @Html.DisplayFor(modelItem => item.PointOfDeparture)
-                                </div>
-                                <div class="float-right">
+                            </div>
+                            <div class="float-right">
                                     @Html.DisplayFor(modelItem => item.PointOfArrival)
-                                </div>
+                            </div>
                             </p>
                         </div>
                         @if (item.TypeOfTrain == TypeOfTrain.UsualTrain)
                         {
-                    <ul class="list-group list-group-flush">
-                        @foreach (Car car in Model.Cars)
-                        {
-                            if (car.TrainId == item.Id)
-                            {
-                        <div class="list-group-item">
-                            <div class="float-left">
-                                <a asp-action="DisplayTickets" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => car.TypeOfCar)</a> 
-                            </div>
-                            <div class="float-right">
-                                @switch (car.TypeOfCar)
+                            <ul class="list-group list-group-flush">
+                                @foreach (Car car in Model.Cars)
                                 {
-                                    case TypeOfCar.Luxury:
-                                        @:1500 uah
+                                    if (car.TrainId == item.Id)
+                                    {
+                                        <div class="list-group-item">
+                                            <div class="float-left">
+                                                <a asp-action="DisplayTickets" asp-route-id="@item.Id">@Html.DisplayFor(modelItem =>
+                                car.TypeOfCar)</a>
+                                            </div>
+                                            <div class="float-right">
+                                                @switch (car.TypeOfCar)
+                                                {
+                                                    case TypeOfCar.Luxury:
+                                                        @:1500 uah
+                                                        break;
+                                                    case TypeOfCar.Compartment:
+                                                        @:500 uah
+                                                        break;
+                                                    case TypeOfCar.Plazcart:
+                                                        @:120 uah
+                                                        break;
+                                                    case TypeOfCar.Class1:
+                                                        @:500 uah
+                                                        break;
+                                                    case TypeOfCar.Class2:
+                                                        @:200 uah
+                                                        break;
+                                                }
+                                            </div>
+
+                                        </div>
                                         break;
-                                    case TypeOfCar.Compartment:
-                                        @:500 uah
-                                        break;
-                                    case TypeOfCar.Plazcart:
-                                        @:120 uah
-                                        break;
-                                    case TypeOfCar.Class1:
-                                        @:500 uah
-                                        break;
-                                    case TypeOfCar.Class2:
-                                        @:200 uah
-                                        break;
+                                    }
                                 }
-                            </div>
-                           
-                        </div>
-                                break;
-                            }
-                        }
-                    </ul>
+                            </ul>
                         }
                     </div>
                 </div>
@@ -87,5 +89,5 @@
 
 
 @section ToLogout{
-    <a class="navbar-brand" asp-controller="Account" asp-action="Logout">Logout</a>
+<a class="navbar-brand" asp-controller="Account" asp-action="Logout">Logout</a>
 }

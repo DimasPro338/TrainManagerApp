@@ -47,6 +47,7 @@ namespace TrainManagerApp.Controllers
             return View(train);
         }
 
+        [HttpGet]
         public IActionResult DisplayTrains()
         {
             dynamic mymodel = new ExpandoObject();
@@ -56,6 +57,7 @@ namespace TrainManagerApp.Controllers
             return View(mymodel);
         }
 
+        [HttpGet]
         public IActionResult DisplayTickets(int? id)
         {
             if (id == null)

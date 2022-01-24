@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,42 +8,51 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
+
 <body>
     <header>
         Fixed navbar
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="trainIcon">
-                <img class="trainIcon" src="~/icons/kisspng-train-enterprises-rail-transport-logo-taiwan-high-train-silhouette-5a92e19a9aad22.4285509415195754506336-removebg-preview.png" alt="Alternate Text" width="75" height="50"/>
+                <img class="trainIcon"
+                    src="~/icons/kisspng-train-enterprises-rail-transport-logo-taiwan-high-train-silhouette-5a92e19a9aad22.4285509415195754506336-removebg-preview.png"
+                    alt="Alternate Text" width="75" height="50" />
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <h4 id = "logoTr">Train manager</h4>
+                        <h4 id="logoTr">Train manager</h4>
                     </li>
                 </ul>
                 <div class="d-flex">
                     @if (IsSectionDefined("AddTrain"))
                     {
-                        @RenderSection("AddTrain");
+                        @RenderSection("AddTrain")
+                        ;
                     }
                     @if (IsSectionDefined("ToLogout"))
                     {
-                        @RenderSection("ToLogout");
+                        @RenderSection("ToLogout")
+                        ;
                     }
                     @if (IsSectionDefined("Register"))
                     {
-                        @RenderSection("Register");
+                        @RenderSection("Register")
+                        ;
                     }
                     @if (IsSectionDefined("Login"))
                     {
-                        @RenderSection("Login");
+                        @RenderSection("Login")
+                        ;
                     }
-                     @if (IsSectionDefined("DisplayTrains"))
+                    @if (IsSectionDefined("DisplayTrains"))
                     {
-                        @RenderSection("DisplayTrains");
+                        @RenderSection("DisplayTrains")
+                        ;
                     }
 
                 </div>
@@ -58,7 +68,8 @@
 
     @if (IsSectionDefined("Footer"))
     {
-        @RenderSection("Footer");
+        @RenderSection("Footer")
+        ;
     }
 
 
@@ -98,4 +109,3 @@
 </div>
 
 </html>
-

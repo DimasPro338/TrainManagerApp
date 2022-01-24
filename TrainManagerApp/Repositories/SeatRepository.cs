@@ -10,7 +10,6 @@ using TrainManagerApp.Models;
 
 namespace TrainManagerApp.Repositories
 {
-    //implement interface
     public class SeatRepository : ISeatRepository<Seat>
     {
         private readonly DataBaseContext context;

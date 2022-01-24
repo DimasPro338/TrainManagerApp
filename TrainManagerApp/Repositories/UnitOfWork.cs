@@ -12,13 +12,12 @@ namespace TrainManagerApp.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private DataBaseContext db;
+        private SeatRepository seatRepository;
 
         public UnitOfWork()
         {
 
         }
-
-        private SeatRepository seatRepository;
 
         public ISeatRepository<Seat> Seats
         {

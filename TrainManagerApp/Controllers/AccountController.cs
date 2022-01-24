@@ -30,7 +30,7 @@ namespace TrainManagerApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 User user = await dataBaseContext.Users
                     .Include(u => u.Role)
@@ -47,7 +47,7 @@ namespace TrainManagerApp.Controllers
                         await Authenticate(user);
                         return RedirectToAction("AuthorizeUser", "AdminTrain");
                     }
-                }                
+                }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
             return View(model);
@@ -59,16 +59,14 @@ namespace TrainManagerApp.Controllers
             return View();
         }
 
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 User user = await dataBaseContext.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
-                if(user == null)
+                if (user == null)
                 {
                     user = new User { Email = model.Email, Password = model.Password };
                     UserRole userRole = await dataBaseContext.Roles.FirstOrDefaultAsync(r => r.Name == "user");
@@ -78,7 +76,7 @@ namespace TrainManagerApp.Controllers
                     dataBaseContext.Users.Add(user);
                     await dataBaseContext.SaveChangesAsync();
 
-                    await Authenticate(user);                                      
+                    await Authenticate(user);
                     return RedirectToAction("AuthorizeUser", "AdminTrain");
                 }
                 else

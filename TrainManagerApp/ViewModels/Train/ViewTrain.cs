@@ -25,7 +25,6 @@ namespace TrainManagerApp.ViewModels.Train
         [Display(Name = "Date of arrival")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DateOfArrival { get; set; }
-
         public TypeOfCar TypeOfCar { get; set; }
     }
 }

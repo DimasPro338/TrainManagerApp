@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TrainManagerApp.ISeatRepository;
+﻿using TrainManagerApp.ISeatRepository;
 using TrainManagerApp.Models;
 
 namespace TrainManagerApp.Interfaces

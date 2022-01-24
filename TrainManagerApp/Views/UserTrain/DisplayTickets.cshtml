@@ -7,24 +7,24 @@
 }
 <h2 class="d-flex justify-content-center">Choose car</h2>
 
-    @foreach (Car item in Model.Cars)
-            {
-                i++;
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card mb-4 box-shadow">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <a asp-action="DisplaySeats" asp-route-id="@item.Id">@i Car @item.Seats.Count</a>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
+@foreach (Car item in Model.Cars)
+{
+    i++;
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a asp-action="DisplaySeats" asp-route-id="@item.Id">@i Car @item.Seats.Count</a>
+                        </h5>
                     </div>
                 </div>
-	}
+            </div>
+        </div>
+    </div>
+}
 
 @section ToLogout{
-    <a class="navbar-brand" asp-controller="Account" asp-action="Logout">Logout</a>
+<a class="navbar-brand" asp-controller="Account" asp-action="Logout">Logout</a>
 }
